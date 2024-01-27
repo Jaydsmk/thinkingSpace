@@ -1,5 +1,4 @@
 import React from "react";
-
 /*
 1. Component's name must start with a Capital letter.
 2. Component is to be exported to use by another component.
@@ -18,7 +17,10 @@ const temp = 1;
 function Test() {
   return (
     <div>
-      <h1 className="" style={{ color: "red", fontSize: "3rem" }}>
+      <h1
+        className="test"
+        // style={{ color: "red", fontSize: "3rem" }}
+      >
         Test Component <br />
         {temp}
       </h1>
