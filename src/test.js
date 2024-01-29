@@ -12,7 +12,7 @@ import React, { useState } from "react";
 3. CSS, Style : use with {{}} + object.
 */
 
-const temp = 1;
+// const temp = 1;
 
 function Test() {
   const [temp, setTemp] = useState(0);
