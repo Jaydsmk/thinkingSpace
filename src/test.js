@@ -14,10 +14,7 @@ import React, { useState } from "react";
 
 // const temp = 1;
 
-function Test() {
-  const [temp, setTemp] = useState(0);
-
-  /* useState :
+/* useState :
     1. first fator : variable name
     2. second fator : function which changes the state
     3. useState function fator : State's initial value and type
@@ -29,16 +26,49 @@ function Test() {
     2. The setState must be used as a function when used in the "on" property of the HTML tag.
   */
 
+// ... : Spread syntax operator
+
+function Test() {
+  const [temp, setTemp] = useState([]);
+  const [hide, setHide] = useState(false);
+  const [number, setNumber] = useState(0);
+
   return (
     <div>
       <h1
         className="test"
         // style={{ color: "red", fontSize: "3rem" }}
       >
-        Test Component <br />
-        {temp}
-        <button onClick={() => setTemp(temp + 1)}>Increae</button>
+        Test Component <br />{" "}
       </h1>
+      {temp.map((e, idx) => {
+        return <p key={idx}>{e}</p>;
+      })}
+      <button
+        onClick={() => {
+          let arr = [];
+          arr = [...temp];
+          arr.push(number);
+          setNumber(number + 1);
+          setTemp([...arr]);
+        }}
+      >
+        Increase
+      </button>
+      {/*
+          Using Bloean with useState example
+          1. Visible <h2> tag if temp value is true
+          2. Invisible <h1> tag if temp value is false
+          *** temp value is opposite when click the Btn ***
+         */}
+      {hide ? <h2>It is True!!</h2> : null}
+      <button
+        onClick={() => {
+          setHide(!hide);
+        }}
+      >
+        {hide ? "Hide!!" : "Unhide!!"}
+      </button>
     </div>
   );
 }
