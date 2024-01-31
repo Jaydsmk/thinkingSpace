@@ -34,7 +34,13 @@ function Test() {
   const [number, setNumber] = useState(0);
 
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
       <h1
         className="test"
         // style={{ color: "red", fontSize: "3rem" }}
@@ -56,11 +62,17 @@ function Test() {
         Increase
       </button>
       {/*
-          Using Bloean with useState example
+          Using Boolean with useState example
           1. Visible <h2> tag if temp value is true
           2. Invisible <h1> tag if temp value is false
           *** temp value is opposite when click the Btn ***
          */}
+
+      <br />
+      <br />
+
+      <h1> Using Boolean useState</h1>
+      <br />
       {hide ? <h2>It is True!!</h2> : null}
       <button
         onClick={() => {
@@ -69,6 +81,13 @@ function Test() {
       >
         {hide ? "Hide!!" : "Unhide!!"}
       </button>
+      <br />
+      <br />
+
+      <h1> Using Input</h1>
+
+      <input type="text"></input>
+      <button>Send!!</button>
     </div>
   );
 }
