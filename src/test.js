@@ -32,6 +32,15 @@ function Test() {
   const [temp, setTemp] = useState([]);
   const [hide, setHide] = useState(false);
   const [number, setNumber] = useState(0);
+  const [content, setContent] = useState("");
+  const [contentList, setContentList] = useState([]);
+
+  const onSubmit = () => {
+    let contentArr = [...contentList];
+    contentArr.push(content);
+    setContentList([...contentArr]);
+    setContent("");
+  };
 
   return (
     <div
@@ -39,6 +48,7 @@ function Test() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        width: "100%",
       }}
     >
       <h1
@@ -85,9 +95,35 @@ function Test() {
       <br />
 
       <h1> Using Input</h1>
-
-      <input type="text"></input>
-      <button>Send!!</button>
+      {contentList.map((content, idx) => {
+        return (
+          <div
+            key={idx}
+            style={{
+              marginLeft: "1rem",
+              width: "100%",
+            }}
+          >
+            Title: {content}
+          </div>
+        );
+      })}
+      <input
+        type="text"
+        value={content}
+        onChange={(e) => {
+          // console.log(e.currentTarget.value);
+          setContent(e.currentTarget.value);
+        }}
+      />
+      <button
+        style={{ marginTop: "1rem" }}
+        onClick={() => {
+          onSubmit();
+        }}
+      >
+        Send!!
+      </button>
     </div>
   );
 }
