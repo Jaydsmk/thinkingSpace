@@ -5,6 +5,8 @@ function List() {
   const [content, setContent] = useState([]);
   const [contentList, setContentList] = useState([]);
 
+  /** Studying React-Router-Dom */
+
   return (
     <div>
       {contentList.map((content, idx) => {
